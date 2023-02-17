@@ -75,6 +75,8 @@ app.delete("/api/v1/rooms/:id", async (req, res) => {
 app.get("/api/v1/rooms/:id", async (req, res) => {
     try {
         const data = await Controller.fetchRoom(req.params.id);
+
+
         res.status(200)
             .send({ message: MESSAGES.FETCHED, success: true, data });
     } catch (err) {
@@ -82,8 +84,6 @@ app.get("/api/v1/rooms/:id", async (req, res) => {
             .send({ message: err.message || MESSAGES.ERROR, success: false });
     }
 });;
-
-//========================
 
 // PATCH ROOMS
 app.patch("/api/v1/rooms/:id", async (req, res) => {
@@ -100,17 +100,6 @@ app.patch("/api/v1/rooms/:id", async (req, res) => {
     }
 });
 
-
-app.get("/api/v1/rooms", async (req, res) => {
-    try {
-        const data = await Controller.fetchAllRoomTypes();
-        res.status(200)
-            .send({ message: MESSAGES.FETCHED, success: true, ROOM_TYPES: data });
-    } catch (err) {
-        res.status(500)
-            .send({ message: err.message || MESSAGES.ERROR, success: false });
-    }
-})
 
 app.listen(PORT, ()=>{
     database()

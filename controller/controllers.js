@@ -24,7 +24,9 @@ class controller{
 
     //TO EDIT ROOMS
     async editRoom(id, type){
-        return await Room.findOneAndUpdate({_id:id}, {type: type});
+        return await Room.findOneAndUpdate({_id:id}, type, {
+            new: true
+        });
     }
 
     //TO DELETE ROOMS
