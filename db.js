@@ -3,10 +3,9 @@ const mongoose = require('mongoose')
 function database(){
     mongoose
         .set('strictQuery', true)
-        //connected here
         .connect(process.env.DATABASE_URI, {
             // userCreateIndex: true,
-            useNewUrlParser:true,
+            // useNewUrlParser:true,
             // userUnifiedTopology:true,
         })
         .then(()=>{

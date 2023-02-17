@@ -3,12 +3,13 @@ const mongoose = require('mongoose')
 
 class HotelServices {
     //TO CREATE ROOM TYPE
-    async createRoomType(filter){
-            return await RoomTypes.create(filter)
+    async createRoomType(name){
+        console.log('at hotel services');
+            return await RoomTypes.create(name)
     }
 
     //TO FETCH ALL ROOM TYPE
-    async fetchRoomAllType(){
+    async fetchAllRoomTypes(){
         return await RoomTypes.find({}); 
     }
 

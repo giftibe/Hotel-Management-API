@@ -1,5 +1,11 @@
-const {RoomTypes,Room} = require('../Models/roomModel')
-const HotelServices = require('../services/services')
+const {
+    createRoomType,
+    fetchAllRoomTypes,
+    createRoom,
+    fetchRoom,
+    editRoom,
+    deleteRoom
+} = require('../services/services')
 const {MESSAGES} = require('../message/constants')
 
 class HotelController{
@@ -8,9 +14,9 @@ class HotelController{
     async createRoomType(req, res){
         try{
             const reqBody = req.body
-
+                console.log('at hotel controller');
             // check if room type exist 
-            const existingRoomType = await HotelServices.fetchRoomType({
+            const existingRoomType = await fetchAllRoomTypes({
                 name: reqBody.name.toLowerCase()
             })
 
@@ -37,7 +43,7 @@ class HotelController{
     //fetch all room types
     async fetchRoomType(req, res) {
         try {
-        const data = await HotelServices.fetchRoomAllType();
+        const data = await fetchAllRoomTypes();
         res.status(200)
             .send({ message: MESSAGES.FETCHED, success: true, ROOM_TYPES: data });
         } catch (err) {
@@ -50,7 +56,7 @@ class HotelController{
     async createARoom(req, res){
         try {
         const reqBody = req.body
-        const data = await HotelServices.createRoom(reqBody).populate("roomType");
+        const data = await createRoom(reqBody).populate("roomType");
         res.status(201)
             .send({ message: MESSAGES.CREATED, success: true, ROOMS:data });
 
@@ -66,7 +72,7 @@ class HotelController{
         const {id} =req.params
 
         //check if room to delete exist
-        const existingRoom = await HotelServices.fetchRoom(id)
+        const existingRoom = await fetchRoom(id)
         if(!existingRoom){
             res.status(500)
             .send({
@@ -75,7 +81,7 @@ class HotelController{
             });
         }
 
-        await HotelServices.deleteRoom(id)
+        await deleteRoom(id)
         res.status(201)
             .send({
                 message: MESSAGES.DELETED,
@@ -89,13 +95,13 @@ class HotelController{
     }
     
 
-    //Fetch rooms
+    //Patch rooms
     async fetchARoom(req, res){
         try{
         const {id} = req.params
 
         //check if the room to fetch exists
-        const existingRoom = await HotelServices.fetchRoom(id)
+        const existingRoom = await editRoom(id)
         if(!existingRoom){
             res.status(500)
             .send({
