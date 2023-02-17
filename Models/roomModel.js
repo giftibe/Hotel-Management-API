@@ -9,7 +9,7 @@ const roomTypeSchema =  new Schema({
             required: true,
             trim: true,
             unique: true
-        },
+        }
 })
 
 const roomSchema =  new Schema({
