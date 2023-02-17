@@ -1,20 +1,20 @@
 const {RoomTypes,Room} = require('../Models/roomModel')
 const mongoose = require('mongoose')
 
-class controller{
+class HotelServices {
     //TO CREATE ROOM TYPE
-    async createRoomType(id){
-            return await RoomTypes.create(id)
+    async createRoomType(filter){
+            return await RoomTypes.create(filter)
     }
 
     //TO FETCH ALL ROOM TYPE
-    async fetchAllRoomTypes(){
+    async fetchRoomAllType(){
         return await RoomTypes.find({}); 
     }
 
     //TO CREATE ROOMS
-    async createRoom(id){
-            return await Room.create(id)
+    async createRoom(data){
+            return await Room.create(data)
     }
 
      //TO FETCH ROOMS BY ID
@@ -35,4 +35,4 @@ class controller{
     }
 }
 
-module.exports = new controller()
+module.exports = new HotelServices()
