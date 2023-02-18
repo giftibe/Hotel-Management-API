@@ -29,7 +29,7 @@
 
 
 ## Features
-List the ready features here:
+List the ready features here
 - Creation of room types
 - Creation of rooms
 - Allocation of room type to each room, etc
