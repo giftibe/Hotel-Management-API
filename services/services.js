@@ -3,9 +3,8 @@ const mongoose = require('mongoose')
 
 class HotelServices {
     //TO CREATE ROOM TYPE
-    async createRoomType(name){
-        console.log('at hotel services');
-            return await RoomTypes.create(name)
+    async createRoomType(id){
+            return await RoomTypes.create(id)
     }
 
     //TO FETCH ALL ROOM TYPE
@@ -32,7 +31,7 @@ class HotelServices {
 
     //TO DELETE ROOMS
     async deleteRoom(id){
-        return await Room.findByIdAndDelete(({_id: id}))
+        return await Room.findByIdAndDelete({_id: id})
     }
 }
 

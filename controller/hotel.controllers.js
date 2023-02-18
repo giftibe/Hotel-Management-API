@@ -4,8 +4,7 @@ const {
     createRoom,
     fetchRoom,
     editRoom,
-    deleteRoom
-} = require('../services/services')
+    deleteRoom } = require('../services/services')
 const {MESSAGES} = require('../message/constants')
 
 class HotelController{
@@ -14,19 +13,15 @@ class HotelController{
     async createRoomType(req, res){
         try{
             const reqBody = req.body
-                console.log('at hotel controller');
             // check if room type exist 
-            const existingRoomType = await fetchAllRoomTypes({
-                name: reqBody.name.toLowerCase()
-            })
-
-            if(existingRoomType) res.status(403).json({
+            const existingRoomType = await fetchAllRoomTypes()
+            if(existingRoomType.name === reqBody.name){ res.status(403).json({
                 success: false,
                 message: 'Room type already exist'
-            })
+            })}
 
-            // if the room type doesn't exist, we create one
-            const newRoomType = await createRoomType(reqBody)
+            //if the room type doesn't exist, we create one
+            const newRoomType = await createRoomType(req.body)
             res.status(201)
                 .send({
                     message: MESSAGES.CREATED,
@@ -52,11 +47,10 @@ class HotelController{
         }
     }
 
-    //Creating rooms with roomTypes
+    //Creating rooms with room
     async createARoom(req, res){
         try {
-        const reqBody = req.body
-        const data = await createRoom(reqBody).populate("roomType");
+        const data =  await (await createRoom(req.body)).populate("roomType")
         res.status(201)
             .send({ message: MESSAGES.CREATED, success: true, ROOMS:data });
 
@@ -95,7 +89,7 @@ class HotelController{
     }
     
 
-    //Patch rooms
+    //Fetch rooms
     async fetchARoom(req, res){
         try{
         const {id} = req.params
@@ -131,7 +125,7 @@ class HotelController{
         const updateData = req.body
         
         //check if the room to edit exist
-        const existingRoom = await HotelServices.fetchRoom(id)
+        const existingRoom = await fetchRoom(id)
         if(!existingRoom){
             res.status(500)
             .send({
@@ -141,7 +135,7 @@ class HotelController{
         }
 
         //if room exists, edit it
-        const change = await HotelServices.editRoom(id, updateData);
+        const change = await editRoom(id, updateData);
         res.status(200)
             .send({ message: MESSAGES.UPDATED, success: true, change});
         }    

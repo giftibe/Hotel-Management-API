@@ -1,19 +1,12 @@
-const router = require('express').Router()
-const { 
-    createRoomType,
-    createARoom, 
-    fetchARoom,
-    fetchRoomType,
-    DeleteARoom,
-    editRoom 
-} = require('../controller/hotel.controllers')
+const express = require('express')
+const router = express.Router()
+const { createRoomType, createARoom, fetchARoom, fetchRoomType, DeleteARoom, editRoom } = require ('../controller/hotel.controllers')
 
-router.post('/api/v1/rooms-types', createRoomType)
-router.get('/api/v1/rooms-types', fetchRoomType)
-router.post('/api/v1/rooms', createARoom)
-router.delete('/api/v1/rooms/:id', DeleteARoom)
-router.get('/api/v1/rooms/:id', fetchARoom)
-router.patch('/api/v1/rooms/:id', editRoom)
-
+router.post('/room-types', createRoomType)
+router.get('/room-types', fetchRoomType)
+router.post('/rooms', createARoom)
+router.delete('/rooms/:id', DeleteARoom)
+router.get('/rooms/:id', fetchARoom)
+router.patch('/rooms/:id', editRoom)
 
 module.exports = router
