@@ -50,7 +50,7 @@
 ## Usage
 `npm install`
 `npm start ` or `nodemon`
-- postman/thnuderclient vscode extension
+ postman/thnuderclient vscode extension
 
 - PUT "{baseUrl}/api/v1/rooms/:id": Edit/patch all roomtypes.
 - PUT "{baseUrl}/api/v1/rooms/:id": Edit/patch a room by id.
