@@ -49,8 +49,11 @@
 ## Usage
 `npm install`
 `npm start ` or `nodemon`
- postman/thnuderclient vscode extension
+ postman/thunderclient vscode extension
 
+-.POST "{baseUrl}/api/v1/signup": signing in users
+- POST "{baseUrl}/api/v1/login" : logging in users
+- GET "{baseUrl}/api/v1/users" : To fetch all users
 - PUT "{baseUrl}/api/v1/rooms/:id": Edit/patch all roomtypes.
 - PUT "{baseUrl}/api/v1/rooms/:id": Edit/patch a room by id.
 - POST "{baseUrl}/api/v1/rooms": Creates new room.
