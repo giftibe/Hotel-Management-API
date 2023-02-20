@@ -50,11 +50,16 @@
 ## Usage
 `npm install`
 `npm start ` or `nodemon`
--open browser(chrome)
+- postman/thnuderclient vscode extension
 
+- PUT "{baseUrl}/api/v1/rooms/:id": Edit/patch all roomtypes.
+- PUT "{baseUrl}/api/v1/rooms/:id": Edit/patch a room by id.
+- POST "{baseUrl}/api/v1/rooms": Creates new room.
+- GET "{baseUrl}/api/v1/rooms/:id": fetches a room by id.
+- DELETE "{baseUrl}/api/v1/rooms/:id": Deletes a room by its 
+- POST "{baseUrl}/api/v1/rooms-types": Creates new roomType.
 
 ## Acknowledgements
-Give credit here.
 - This project was inspired by Genesys Tech Hub/Laearnable 23
 - Many thanks to all who made this possible continue to do so as we build
 
