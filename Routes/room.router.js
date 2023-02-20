@@ -12,7 +12,7 @@ router.post('/signup', signupUser)
 //logIn user
 router.post('/login', loginUser)
 
-//to get all users
+//to fetch all users
 router.get('/users', verifyToken, fetchAllUser)
 
 //room and roomtype functionalities
