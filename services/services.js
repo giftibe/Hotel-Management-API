@@ -1,4 +1,4 @@
-const {RoomTypes,Room} = require('../Models/roomModel')
+const {RoomTypes,Room, Users} = require('../Models/roomModel')
 const mongoose = require('mongoose')
 
 class HotelServices {
@@ -33,6 +33,12 @@ class HotelServices {
     async deleteRoom(id){
         return await Room.findByIdAndDelete({_id: id})
     }
+
+    //TO FETCH ALL USER
+    async fetchAllUser(){
+        return await Users.find({}); 
+    }
+
 }
 
 module.exports = new HotelServices()

@@ -4,7 +4,8 @@ const {
     createRoom,
     fetchRoom,
     editRoom,
-    deleteRoom } = require('../services/services')
+    deleteRoom,
+    fetchAllUser } = require('../services/services')
 const {MESSAGES} = require('../message/constants')
 
 class HotelController{
@@ -144,7 +145,19 @@ class HotelController{
             res.status(500)
             .send({ message: err.message || MESSAGES.ERROR, success: false });
         }
-}
+    }
+
+        //fetch all users
+        async fetchAllUser(req, res) {
+            try {
+                const data = await fetchAllUser();
+                res.status(200)
+                    .send({ message: MESSAGES.FETCHED, success: true, data });
+                } catch (err) {
+                    res.status(500)
+                        .send({ message: err.message || MESSAGES.ERROR, success: false });
+            }
+    }
 }
 
 module.exports = new HotelController();
