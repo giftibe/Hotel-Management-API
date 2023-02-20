@@ -33,13 +33,14 @@
 
 
 ## Features
+- Creation of room users with specific roles(guest and admin)
 - Creation of room types
 - Creation of rooms
 - Allocation of room type to each room, etc,
 - define functionality for users
 - use of joi for validation of data request 
-- Hasing of user password with bcrypt technolody/middleware
-- use of json webtoken to control/restrict route access
+- Hashing of user password with bcrypt technology/middleware
+- use of jsonwebtoken to control/restrict route access
 
 
 ## Setup
@@ -49,8 +50,11 @@
 ## Usage
 `npm install`
 `npm start ` or `nodemon`
- postman/thnuderclient vscode extension
+ postman/thunderclient vscode extension
 
+- POST "{baseUrl}/api/v1/signup": signing in users
+- POST "{baseUrl}/api/v1/login" : logging in users
+- GET "{baseUrl}/api/v1/users" : To fetch all users
 - PUT "{baseUrl}/api/v1/rooms/:id": Edit/patch all roomtypes.
 - PUT "{baseUrl}/api/v1/rooms/:id": Edit/patch a room by id.
 - POST "{baseUrl}/api/v1/rooms": Creates new room.
