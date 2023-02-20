@@ -11,7 +11,12 @@ const constants ={
         ERROR:   'Resource error',
         CREATED: 'Resource created successfully',
         DELETED: 'Resource deleted successfully',
-        WELCOME: 'Hotel Management api'
+        WELCOME: 'Hotel Management api',
+        DUPLICATE: 'Email already used',
+        REGISTERED: 'User registered successfully',
+        LOGIN: 'User logged in successfully',
+        REGISTER: 'Please Register',
+        UNAUTHORIZED:'Unauthorized information'
     }
 }
 

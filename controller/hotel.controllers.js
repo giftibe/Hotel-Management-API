@@ -13,7 +13,8 @@ class HotelController{
     async createRoomType(req, res){
         try{
             const reqBody = req.body
-            // check if room type exist 
+
+            // checking if the room type exist 
             const existingRoomType = await fetchAllRoomTypes()
             if(existingRoomType.name === reqBody.name){ res.status(403).json({
                 success: false,
