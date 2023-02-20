@@ -55,7 +55,7 @@ async signupUser(req, res){
 }
 
 
-//login user
+//login user, validating email and using bcrypt to compare passwords 
     async loginUser(req, res){
         const {email} = req.body
         const {password} = req.body

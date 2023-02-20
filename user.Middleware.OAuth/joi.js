@@ -1,7 +1,7 @@
 const express = require('express');
 const Joi = require('joi');
 
-
+// using joi package to validate data 
 function validateRoomJoi(req,res, next) {
     const joiRoomSchema = Joi.object({
         name: Joi.string(),
@@ -18,7 +18,7 @@ function validateRoomJoi(req,res, next) {
                 });
     }
     else{
-        next()
+        next() //if validation is successful, it moves to the next program
     }
 }
 

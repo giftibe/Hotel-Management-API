@@ -34,7 +34,7 @@ class HotelServices {
         return await Room.findByIdAndDelete({_id: id})
     }
 
-    //TO FETCH ALL USER
+    //TO FETCH ALL USERS
     async fetchAllUser(){
         return await Users.find({}); 
     }
