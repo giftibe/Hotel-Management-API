@@ -10,7 +10,6 @@
 * [Contact](#contact)
 
 
-
 ## General Information
 - A hotel management api use for determinine the prices, and features of hotel room and at carious prices.
 - Helps in creation of hotel rooms, allocating various price and features/names to each room using its unique id
@@ -58,6 +57,10 @@
 - GET "{baseUrl}/api/v1/rooms/:id": fetches a room by id.
 - DELETE "{baseUrl}/api/v1/rooms/:id": Deletes a room by its 
 - POST "{baseUrl}/api/v1/rooms-types": Creates new roomType.
+
+
+## Expected Output
+https://github.com/giftibe/Hotel-Management-API/tree/main/images
 
 ## Acknowledgements
 - This project was inspired by Genesys Tech Hub/Laearnable 23
