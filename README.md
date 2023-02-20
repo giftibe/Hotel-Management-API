@@ -25,21 +25,27 @@
 -  "mongoose": "^6.9.1",
 -  "morgan": "^1.10.0",
 -  "postman",
--  "nodemon"
+-  "nodemon",
+-  "bcrypt": "^5.1.0"
+-  "express-async-handler": "^1.2.0",
+-  "joi": "^17.7.1",
+-  "jsonwebtoken": "^9.0.0",
+
 
 
 ## Features
-List the ready features here
 - Creation of room types
 - Creation of rooms
-- Allocation of room type to each room, etc
+- Allocation of room type to each room, etc,
+- define functionality for users
+- use of joi for validation of data request 
+- Hasing of user password with bcrypt technolody/middleware
+- use of json webtoken to control/restrict route access
 
 
 ## Setup
-
 -To use fork repository, ensure node installed installed in your local machine and have npm running also
 -Fork repository and run "npm install"; to install all dependencies
-
 
 ## Usage
 `npm install`
